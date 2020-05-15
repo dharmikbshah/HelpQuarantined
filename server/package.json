@@ -1,0 +1,22 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Help Quarantined API code",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server",
+    "startLocal": "nodemon -r dotenv/config server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dharmik Shah",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "colors": "^1.4.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "nodemon": "^2.0.2"
+  }
+}
