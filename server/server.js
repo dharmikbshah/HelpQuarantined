@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const colors = require('colors');
-
+const mongoose = require('mongoose');
 const configRoutes = require("./routes");
 const config = require('./config');
 
@@ -23,6 +23,10 @@ async function initServer() {
   try {
     console.log("Connecting to database");
     //database connection code
+    await mongoose.connect(app.config.MONGO_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    });
 
     console.log("Successfully connected to the database");
 
