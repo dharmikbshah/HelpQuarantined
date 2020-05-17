@@ -22,5 +22,5 @@ const userSchema = new Schema({
     isVerified: { type: Boolean, default: false },
     created_at: { type: Date, default: Date.now }, 
 });
-
-module.exports = mongoose.model('User', userSchema);
+mongoose.model('User', userSchema, 'User');
+module.exports = mongoose.model('User');

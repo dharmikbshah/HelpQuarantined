@@ -10,4 +10,5 @@ module.exports = {
     JWT_SECRET:process.env.JWT_SECRET,
 
     //nonenv configs
+    SEARCH_RADIUS: 100,
 };

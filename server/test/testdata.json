@@ -1,0 +1,20 @@
+{
+    "user_name": "Dharmik Shah",
+    "user_contact": "+918828354633",
+    "user_email": "dharmikbshah@gmail.com",
+    "hashed_password": "jfhksjdhrweu7493875wieryiuyhkjh",
+    "salt": "",
+    "user_address": "1201 Sun Heights, Powai, Mumbai",
+    "isQuarantined": true,
+    "required_items": [
+        { "item_name": "Milk packet", "item_quantity": "2"},
+        { "item_name": "Sugar", "item_quantity": "500 gms"},
+        { "item_name": "oil", "item_quantity": "500 ml"}
+    ],
+    "location": {
+      "type": "Point",
+      "coordinates": [72.381600, 23.800800]
+    },
+    "isVerified": true,
+    "created_at": "17/05/2020" 
+}
