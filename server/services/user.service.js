@@ -23,7 +23,13 @@ async function getUserById(id)
     return User.findOne({ _id: id }).exec();
 }
 
+async function updateUserById(id,doc)
+{
+    return User.findByIdAndUpdate(id, doc, { new: true }).exec();
+}
+
 module.exports = {
     findNearbyUsers,
-    getUserById
+    getUserById,
+    updateUserById
 };
