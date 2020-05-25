@@ -4,7 +4,8 @@
     "user_email": "dharmikbshah@gmail.com",
     "hashed_password": "jfhksjdhrweu7493875wieryiuyhkjh",
     "salt": "",
-    "user_address": "1201 Sun Heights, Powai, Mumbai",
+    "user_address": "1201 Sun Heights, Powai",
+    "user_city": "Mumbai",
     "isQuarantined": true,
     "required_items": [
         { "item_name": "Milk packet", "item_quantity": "2"},

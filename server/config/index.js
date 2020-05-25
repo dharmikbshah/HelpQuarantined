@@ -11,4 +11,6 @@ module.exports = {
 
     //nonenv configs
     SEARCH_RADIUS: 100,
+    EXPIRY_TIME: 100 * 24 * 60 * 60,
+    OPT_EXPIRY_TIME: 10 * 60 * 1000   //in milliseconds
 };
