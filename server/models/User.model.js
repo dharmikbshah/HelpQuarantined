@@ -7,11 +7,11 @@ const userSchema = new Schema({
     user_email: String,
     hashed_password: String,
     salt: { type: String, default: '' },
-    token: Number,
+    token: String,
     token_created_at: String,
     user_address: String,
     user_city: String,
-    isQuarantined: { type: Boolean, default: false },
+    isQuarantined: { type: Boolean, default: true },
     required_items: [{ item_name: String, item_quantity: String }],
     location: {
       type: {

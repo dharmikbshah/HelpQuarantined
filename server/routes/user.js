@@ -157,7 +157,7 @@ async function resendOTP(req, res, next) {
       token_created_at: new Date()
     }
     await userService.updateUserById(user._id, doc);
-    otpService.sendOTP(user_email, token,config);
+    otpService.sendOTP(user_email, doc.token, config);
     return res.status(200).json({ message: 'OTP is sent again' });
 
   } catch (e) {
