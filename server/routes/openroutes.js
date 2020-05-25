@@ -21,7 +21,7 @@ async function getNearbyQuarantinedUsers(req, res, next) {
     try {
       let users = await userService.findNearbyUsers(latitude, longitude, config.SEARCH_RADIUS);
       console.log(users);
-      users = users.map(user => user.toObject());
+      users = users.map(user => common.formatResponse(user.toObject())); 
       return res.status(200).json({ users: users, message: 'success' });
     } catch (e) {
       console.error(colors.red(e));

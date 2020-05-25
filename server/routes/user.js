@@ -179,6 +179,7 @@ async function fetchUserProfile(req, res, next) {
           message: 'A User with this Id does not exists'
         });
       }
+      user = common.formatResponse(user.toObject());
       return res.status(200).json({ user, message: 'success' });
   
     } catch (e) {
@@ -201,6 +202,7 @@ async function updateUserProfile(req, res, next) {
       }
 
       let response = await userService.updateUserById(userId, req.body);
+      response = common.formatResponse(response.toObject());
       return res.status(200).json({ user: response, message: 'success' });
 
     } catch (e) {

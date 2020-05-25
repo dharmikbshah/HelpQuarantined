@@ -17,6 +17,20 @@ const authorization = function (req, res, next) {
    
 }
 
+const formatResponse = function (user) {
+    
+    user.hashed_password && delete user.hashed_password;
+    user.salt && delete user.salt;
+    user.token && delete user.token;
+    user.token_created_at && delete user.token_created_at;
+
+    let baseurl = "https://www.google.com/maps/dir/?api=1";
+    user.navigation_url = `${baseurl}&destination=${user.location.coordinates[1]},${user.location.coordinates[0]}&travelmode=walking`;
+
+    return user;
+}
+
 module.exports = {
-    authorization
+    authorization,
+    formatResponse
 }
