@@ -7,6 +7,7 @@ const configRoutes = require("./routes");
 const config = require('./config');
 
 const app = express();
+// test
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
