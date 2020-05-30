@@ -1,0 +1,7 @@
+{
+  "name": "help-quarantined",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}

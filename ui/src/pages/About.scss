@@ -1,0 +1,86 @@
+#about-page {
+  ion-toolbar {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    --background: transparent;
+  }
+
+  .about-header {
+    position: relative;
+
+    width: 100%;
+    height: 30%;
+  }
+
+  .about-header .about-image {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    opacity: 0;
+
+    transition: opacity 500ms ease-in-out;
+  }
+
+  .about-header .about {
+    background-image: url("/assets/img/about/about.png");
+  }
+
+  .about-info {
+    position: absolute;
+    margin-top: -10px;
+    border-radius: 10px;
+    background: var(--ion-background-color, rgb(245, 253, 255));
+  }
+
+  .about-info h3 {
+    margin-top: 0;
+  }
+
+  .about-info ion-list {
+    padding-top: 0;
+  }
+
+  .about-info p {
+    line-height: 130%;
+
+    color: var(--ion-color-dark);
+  }
+
+  .about-info ion-icon {
+    margin-inline-end: 32px;
+  }
+
+  .wide-chip {
+    width: 90%;
+    justify-content: center;
+    height: 50px;
+    padding: 25px;
+    border-radius: 25px;
+    margin: 0 5%;
+  }
+
+  /*
+   * iOS Only
+   */
+
+  .ios .about-info {
+    --ion-padding: 19px;
+  }
+
+  .ios .about-info h3 {
+    font-weight: 700;
+  }
+
+}

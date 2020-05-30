@@ -1,0 +1,2 @@
+(this["webpackJsonphelp-quarantined"]=this["webpackJsonphelp-quarantined"]||[]).push([[3],{198:function(n,t,e){"use strict";e.r(t),e.d(t,"startStatusTap",(function(){return o}));var i=e(41),o=(e(13),function(){var n=window;n.addEventListener("statusTap",(function(){Object(i.g)((function(){var t=n.innerWidth,e=n.innerHeight,o=document.elementFromPoint(t/2,e/2);if(o){var r=o.closest("ion-content");r&&r.componentOnReady().then((function(){Object(i.l)((function(){return r.scrollToTop(300)}))}))}}))}))})}}]);
+//# sourceMappingURL=3.1ce846ab.chunk.js.map

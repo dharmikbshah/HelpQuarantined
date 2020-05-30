@@ -95,7 +95,7 @@ async function verification(req, res, next) {
   const config = req.app.config;
   let user_email = req.body.user_email;
   let otp = req.body.otp;
-
+  console.log('verification: ', req.body);
   try {
 
     let user = await userService.getUserByEmailId(user_email);
