@@ -1,6 +1,6 @@
-import React, { useRef, useEffect } from 'react';
 // import { Location } from '../models/Location';
 import { IonChip, IonLabel } from '@ionic/react';
+import React, { useEffect, useRef } from 'react';
 
 interface MapProps {
   locations: any
@@ -18,7 +18,7 @@ const Map: React.FC<MapProps> = ({ mapCenter, locations }) => {
         lat: mapCenter.lat,
         lng: mapCenter.lng
       },
-      zoom: 12
+      zoom: 17
     });
 
     addMarkers();
@@ -33,21 +33,21 @@ const Map: React.FC<MapProps> = ({ mapCenter, locations }) => {
       locations.forEach((markerData: any) => {
         let items = `<p>Items Required</p>`;
         markerData.requiredItems.map((i: any) => {
-          items+= `<p>${i.item_name}: ${i.item_quantity} </p>`
+          items += `<p>${i.item_name}: ${i.item_quantity} </p>`
         })
-        let navigate = <IonChip><IonLabel><a href={markerData.navigation_url}>Navigate-></a></IonLabel></IonChip>
+        //let navigate = <IonChip><IonLabel><a href={markerData.navigation_url}>Navigate-></a></IonLabel></IonChip>
         let infoWindow = new google.maps.InfoWindow({
-          content: `<h5>${markerData.name}</h5><h5>${markerData.contact}</h5><h5>${markerData.address}</h5>${items}${navigate}
-          <div style="background: aquamarine; text-align: center; border-radius: 10px;"><a style="font-size:17px; text-decoration: none;" href=${markerData.navigation_url}>Navigate</a></div>`
+          content: `<h5>${markerData.name}</h5><h5>${markerData.contact}</h5><h5>${markerData.address}</h5>${items}
+          <div style="background: #1A73E8; text-align: center; border-radius: 10px; font-weight:400;"><a style="font-size:17px; text-decoration: none; color: white; " href=${markerData.navigation_url}>Navigate</a></div>`
         });
-  
+
         let marker = new google.maps.Marker({
           position: new google.maps.LatLng(markerData.lat, markerData.lng),
           map: map.current!,
           icon: '/assets/img/marker.png',
           title: markerData.name
         });
-  
+
         marker.addListener('click', () => {
           infoWindow.open(map.current!, marker);
         });

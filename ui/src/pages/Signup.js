@@ -1,10 +1,13 @@
-import React from 'react';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonButtons, IonMenuButton, IonRow, IonCol, IonButton, IonList, IonItem, IonLabel, IonInput, IonToast, IonLoading } from '@ionic/react';
 import './Login.scss';
-import { setIsLoggedIn, setUsername } from '../data/user/user.actions';
-import { connect } from '../data/connect';
-import AuthService from '../auth/AuthService';
+
 import { Geolocation } from '@ionic-native/geolocation';
+import { IonButton, IonButtons, IonCol, IonContent, IonHeader, IonInput, IonItem, IonLabel, IonList, IonLoading, IonMenuButton, IonPage, IonRow, IonTitle, IonToast, IonToolbar } from '@ionic/react';
+import React from 'react';
+
+import AuthService from '../auth/AuthService';
+import { connect } from '../data/connect';
+import { setIsLoggedIn, setUsername } from '../data/user/user.actions';
+
 class Signup extends React.Component {
   constructor(props) {
     super(props);
@@ -34,7 +37,13 @@ class Signup extends React.Component {
   // }
 
   async componentDidMount() {
-    const position = await Geolocation.getCurrentPosition();
+    //const position = await Geolocation.getCurrentPosition();
+    const position = {
+      coords: {
+        longitude: 72.395402,
+        latitude: 23.804874
+      }
+    }
     this.setState({
       longitude: position.coords.longitude || 0,
       latitude: position.coords.latitude || 0
@@ -54,9 +63,9 @@ class Signup extends React.Component {
   }
   async handleSubmit(e) {
     e.preventDefault();
-    this.setState({showLoading: true, message: ''})
+    this.setState({ showLoading: true, message: '' })
     const { username, email, contact, password, address, city, longitude, latitude } = this.state;
-    if(!username || !email || !contact || !password || !address || !city){
+    if (!username || !email || !contact || !password || !address || !city) {
       this.setState({
         showToast: true,
         message: 'Values can\'t be empty',
@@ -66,7 +75,7 @@ class Signup extends React.Component {
       // await this.props.setIsLoggedIn(true);
       // await this.props.setUsername(username);
       try {
-        if(!longitude || !latitude){
+        if (!longitude || !latitude) {
           this.setState({
             showToast: true,
             message: 'You must allow access to your location to proceed',
@@ -91,7 +100,7 @@ class Signup extends React.Component {
             address: '',
             city: ''
           });
-          this.props.history.push('/otp', {email, direction: 'none'});
+          this.props.history.push('/otp', { email, direction: 'none' });
         }
 
         return this.setState({
@@ -111,8 +120,8 @@ class Signup extends React.Component {
   }
 
   render() {
-    const{ username, email, contact, password, city, address, showToast, showLoading, message } = this.state;
-    return(
+    const { username, email, contact, password, city, address, showToast, showLoading, message } = this.state;
+    return (
       <IonPage id="signup-page">
         <IonHeader>
           <IonToolbar>
@@ -136,7 +145,7 @@ class Signup extends React.Component {
                   name="username"
                   type="text"
                   value={username}
-                  onIonChange={e => this.setState({username: e.detail.value})}
+                  onIonChange={e => this.setState({ username: e.detail.value })}
                   required
                 />
               </IonItem>
@@ -164,7 +173,7 @@ class Signup extends React.Component {
                   name="email"
                   type="email"
                   value={email}
-                  onIonChange={e => this.setState({email: e.detail.value})}
+                  onIonChange={e => this.setState({ email: e.detail.value })}
                   required
                 />
               </IonItem>
@@ -175,7 +184,7 @@ class Signup extends React.Component {
                   name="password"
                   type="password"
                   value={password}
-                  onIonChange={e => this.setState({password: e.detail.value})}
+                  onIonChange={e => this.setState({ password: e.detail.value })}
                   required
                 />
               </IonItem>

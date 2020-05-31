@@ -1,11 +1,12 @@
-import React from 'react';
-import Map from '../components/Map';
-import config from '../config';
-import { Geolocation } from '@ionic-native/geolocation';
-import AuthService from '../auth/AuthService';
-import { IonHeader, IonToolbar, IonFooter, IonButtons, IonMenuButton, IonTitle, IonContent, IonPage } from '@ionic/react';
 import './MapView.scss';
 
+import { Geolocation } from '@ionic-native/geolocation';
+import { IonButtons, IonContent, IonFooter, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import React from 'react';
+
+import AuthService from '../auth/AuthService';
+import Map from '../components/Map';
+import config from '../config';
 
 class MapView extends React.Component {
   state = {
@@ -14,9 +15,9 @@ class MapView extends React.Component {
     locations: [],
     mapCenter: {
       id: 1,
-      name: "Manank",
-      lat: 43.071584,
-      lng: -89.380120
+      name: "HelpThyNeighbours",
+      lat: 23.804874,
+      lng: 72.395402
     },
     showToast: false,
     showLoading: false
@@ -33,8 +34,14 @@ class MapView extends React.Component {
     this.setState({
       showLoading: true
     })
-    const position = await Geolocation.getCurrentPosition();
-    if(!position.coords.longitude || !position.coords.latitude) {
+    //const position = await Geolocation.getCurrentPosition();
+    const position = {
+      coords: {
+        longitude: 72.395402,
+        latitude: 23.804874
+      }
+    }
+    if (!position.coords.longitude || !position.coords.latitude) {
       this.setState({
         showToast: true,
         message: 'You must allow access to your location to proceed',
@@ -48,7 +55,7 @@ class MapView extends React.Component {
         });
         let users = res.users;
         let locations: any = [];
-        if(users.length > 0){
+        if (users.length > 0) {
           users.map((u: any) => {
             locations.push({
               id: u._id,
@@ -73,9 +80,9 @@ class MapView extends React.Component {
           },
           showLoading: false
         })
-      } catch(e) {
+      } catch (e) {
         this.setState({
-          locations:[],
+          locations: [],
           showLoading: false
         })
       }
