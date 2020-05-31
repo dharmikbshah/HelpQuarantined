@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 // import { Location } from '../models/Location';
+import { IonChip, IonLabel } from '@ionic/react';
 
 interface MapProps {
   locations: any
@@ -17,7 +18,7 @@ const Map: React.FC<MapProps> = ({ mapCenter, locations }) => {
         lat: mapCenter.lat,
         lng: mapCenter.lng
       },
-      zoom: 16
+      zoom: 12
     });
 
     addMarkers();
@@ -30,8 +31,14 @@ const Map: React.FC<MapProps> = ({ mapCenter, locations }) => {
 
     function addMarkers() {
       locations.forEach((markerData: any) => {
+        let items = `<p>Items Required</p>`;
+        markerData.requiredItems.map((i: any) => {
+          items+= `<p>${i.item_name}: ${i.item_quantity} </p>`
+        })
+        let navigate = <IonChip><IonLabel><a href={markerData.navigation_url}>Navigate-></a></IonLabel></IonChip>
         let infoWindow = new google.maps.InfoWindow({
-          content: `<h5>${markerData.name}</h5><h5>${markerData.contact}</h5><h5>${markerData.address}</h5><a href=${markerData.navigation_url}>Navigate</a>`
+          content: `<h5>${markerData.name}</h5><h5>${markerData.contact}</h5><h5>${markerData.address}</h5>${items}${navigate}
+          <div style="background: aquamarine; text-align: center; border-radius: 10px;"><a style="font-size:17px; text-decoration: none;" href=${markerData.navigation_url}>Navigate</a></div>`
         });
   
         let marker = new google.maps.Marker({
